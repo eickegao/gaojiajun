@@ -65,11 +65,11 @@ export function getSwitchLangPath(currentPath: string, currentLang: Lang): strin
   // Strip base prefix first
   const pathWithoutBase = currentPath.startsWith(base) ? currentPath.slice(base.length) : currentPath;
   if (targetLang === SITE.defaultLang) {
-    // -> en: remove /zh/ prefix
+    // -> zh (default): remove /en/ prefix, go to root
     const cleanPath = pathWithoutBase.replace(`/${currentLang}`, "") || "/";
     return `${base}${cleanPath}`;
   } else {
-    // -> zh: add /zh/ prefix
+    // -> en: add /en/ prefix
     return `${base}/${targetLang}${pathWithoutBase}`;
   }
 }

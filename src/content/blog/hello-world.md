@@ -16,7 +16,7 @@ Hey there! I'm Eric, a globally nomadic coder who was made in Shanghai, upgraded
 
 • v2.0 (2006): Migrated to Canada, successfully acquired the "Maple Leaf Shield," and switched to a new server. 🍁
 
-• v3.0 (Now): Wandered into America, currently customizing my life script and trying to become a Solopreneur — with the goal of building a passive income empire through code! 💰💡
+• v3.0 (Now): Wandered into USA, currently customizing my life script and trying to become a Solopreneur — with the goal of building a passive income empire through code! 💰💡
 
 🎮 Career Path — From Coder to Entrepreneur to Free Spirit
 

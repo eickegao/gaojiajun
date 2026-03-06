@@ -4,10 +4,10 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import ArticleCard from "../../components/ArticleCard.astro";
 import { t } from "../../i18n";
 
-const lang = "en";
+const lang = "zh";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog", ({ data }) => data.lang === "en");
+  const posts = await getCollection("blog", ({ data }) => data.lang === "zh");
   const tags = new Set<string>();
   posts.forEach((post) => post.data.tags.forEach((tag) => tags.add(tag)));
 

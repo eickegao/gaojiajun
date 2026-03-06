@@ -7,7 +7,7 @@ import { t } from "../../i18n";
 import { formatDate, getReadingTime } from "../../utils/blog";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog", ({ data }) => data.lang === "en");
+  const posts = await getCollection("blog", ({ data }) => data.lang === "zh");
   return posts.map((post) => ({
     params: { slug: post.id },
     props: post,
@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 
 const post = Astro.props;
 const { Content } = await render(post);
-const lang = "en";
+const lang = "zh";
 const readingTime = post.body ? getReadingTime(post.body) : undefined;
 ---
 

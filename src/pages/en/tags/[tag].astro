@@ -4,10 +4,10 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import ArticleCard from "../../../components/ArticleCard.astro";
 import { t } from "../../../i18n";
 
-const lang = "zh";
+const lang = "en";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog", ({ data }) => data.lang === "zh");
+  const posts = await getCollection("blog", ({ data }) => data.lang === "en");
   const tags = new Set<string>();
   posts.forEach((post) => post.data.tags.forEach((tag) => tags.add(tag)));
 
@@ -26,7 +26,7 @@ const { tag, posts } = Astro.props;
 ---
 
 <BaseLayout title={`${t(lang, "blog.taggedWith")}: ${tag}`} lang={lang}>
-  <a href="/gaojiajun/zh/blog/" class="back">&larr; {t(lang, "blog.backToBlog")}</a>
+  <a href="/gaojiajun/en/blog/" class="back">&larr; {t(lang, "blog.backToBlog")}</a>
   <h1>{t(lang, "blog.taggedWith")}: #{tag}</h1>
   {posts.map((post: any) => (
     <ArticleCard

@@ -10,7 +10,7 @@ export const SITE = {
   },
   url: "https://eickegao.github.io",
   base: "/gaojiajun",
-  defaultLang: "en" as const,
+  defaultLang: "zh" as const,
   supportedLangs: ["en", "zh"] as const,
 
   // 个人信息
@@ -36,15 +36,15 @@ export const SITE = {
 
   // 导航菜单
   nav: {
-    en: [
-      { text: "Home", href: "/gaojiajun/" },
-      { text: "Blog", href: "/gaojiajun/blog/" },
-      { text: "About", href: "/gaojiajun/about/" },
-    ],
     zh: [
-      { text: "首页", href: "/gaojiajun/zh/" },
-      { text: "博客", href: "/gaojiajun/zh/blog/" },
-      { text: "关于", href: "/gaojiajun/zh/about/" },
+      { text: "首页", href: "/gaojiajun/" },
+      { text: "博客", href: "/gaojiajun/blog/" },
+      { text: "关于", href: "/gaojiajun/about/" },
+    ],
+    en: [
+      { text: "Home", href: "/gaojiajun/en/" },
+      { text: "Blog", href: "/gaojiajun/en/blog/" },
+      { text: "About", href: "/gaojiajun/en/about/" },
     ],
   },
 

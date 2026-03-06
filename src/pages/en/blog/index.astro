@@ -4,7 +4,7 @@ import ArticleCard from "../../../components/ArticleCard.astro";
 import { t } from "../../../i18n";
 import { getBlogPosts } from "../../../utils/blog";
 
-const lang = "zh";
+const lang = "en";
 const posts = await getBlogPosts(lang);
 ---
 
@@ -21,7 +21,7 @@ const posts = await getBlogPosts(lang);
       body={post.body}
     />
   ))}
-  {posts.length === 0 && <p class="empty">暂无文章。</p>}
+  {posts.length === 0 && <p class="empty">No posts yet.</p>}
 </BaseLayout>
 
 <style>
