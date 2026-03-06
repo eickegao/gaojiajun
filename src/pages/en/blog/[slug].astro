@@ -20,7 +20,7 @@ const lang = "en";
 const readingTime = post.body ? getReadingTime(post.body) : undefined;
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description} lang={lang}>
+<BaseLayout title={post.data.title} description={post.data.description} lang={lang} image={post.data.image} article={{ pubDate: post.data.pubDate, updatedDate: post.data.updatedDate, tags: post.data.tags }}>
   <article>
     <a href="/en/blog/" class="back">&larr; {t(lang, "blog.backToBlog")}</a>
     <h1>{post.data.title}</h1>
