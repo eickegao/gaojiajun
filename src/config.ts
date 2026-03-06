@@ -5,8 +5,8 @@ export const SITE = {
     zh: "独立营业中",
   },
   description: {
-    en: "Personal blog of Gao Jiajun",
-    zh: "高加骏的个人博客",
+    en: "Personal blog of Solopreneur",
+    zh: "独立营业中",
   },
   url: "https://eickegao.github.io",
   base: "/gaojiajun",
@@ -16,8 +16,8 @@ export const SITE = {
   // 个人信息
   author: {
     name: {
-      en: "Gao Jiajun",
-      zh: "高加骏",
+      en: "Eric Gao",
+      zh: "德州小高",
     },
     avatar: "/gaojiajun/avatar.jpg",
     bio: {
