@@ -50,21 +50,26 @@ export function t(lang: Lang, key: string): string {
   return translations[lang]?.[key] ?? key;
 }
 
+const base = SITE.base || "";
+
 export function getLocalizedPath(path: string, lang: Lang): string {
   if (lang === SITE.defaultLang) {
-    return path;
+    return `${base}${path}`;
   }
-  return `/${lang}${path}`;
+  return `${base}/${lang}${path}`;
 }
 
 // 获取当前页面对应的另一语言路径
 export function getSwitchLangPath(currentPath: string, currentLang: Lang): string {
   const targetLang = currentLang === "en" ? "zh" : "en";
-  if (currentLang === SITE.defaultLang) {
-    // en -> zh: add /zh/ prefix
-    return `/${targetLang}${currentPath}`;
+  // Strip base prefix first
+  const pathWithoutBase = currentPath.startsWith(base) ? currentPath.slice(base.length) : currentPath;
+  if (targetLang === SITE.defaultLang) {
+    // -> en: remove /zh/ prefix
+    const cleanPath = pathWithoutBase.replace(`/${currentLang}`, "") || "/";
+    return `${base}${cleanPath}`;
   } else {
-    // zh -> en: remove /zh/ prefix
-    return currentPath.replace(`/${currentLang}`, "") || "/";
+    // -> zh: add /zh/ prefix
+    return `${base}/${targetLang}${pathWithoutBase}`;
   }
 }

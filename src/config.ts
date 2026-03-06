@@ -5,7 +5,8 @@ export const SITE = {
     en: "Personal blog of Gao Jiajun",
     zh: "高加骏的个人博客",
   },
-  url: "https://gaojiajun.me",
+  url: "https://eickegao.github.io",
+  base: "/gaojiajun",
   defaultLang: "en" as const,
   supportedLangs: ["en", "zh"] as const,
 
@@ -15,7 +16,7 @@ export const SITE = {
       en: "Gao Jiajun",
       zh: "高加骏",
     },
-    avatar: "/avatar.jpg",
+    avatar: "/gaojiajun/avatar.jpg",
     bio: {
       en: "Welcome to my personal blog. I write about technology, life, and everything in between.",
       zh: "欢迎来到我的个人博客。我写关于技术、生活和其间一切的文章。",
@@ -33,14 +34,14 @@ export const SITE = {
   // 导航菜单
   nav: {
     en: [
-      { text: "Home", href: "/" },
-      { text: "Blog", href: "/blog/" },
-      { text: "About", href: "/about/" },
+      { text: "Home", href: "/gaojiajun/" },
+      { text: "Blog", href: "/gaojiajun/blog/" },
+      { text: "About", href: "/gaojiajun/about/" },
     ],
     zh: [
-      { text: "首页", href: "/zh/" },
-      { text: "博客", href: "/zh/blog/" },
-      { text: "关于", href: "/zh/about/" },
+      { text: "首页", href: "/gaojiajun/zh/" },
+      { text: "博客", href: "/gaojiajun/zh/blog/" },
+      { text: "关于", href: "/gaojiajun/zh/about/" },
     ],
   },
 

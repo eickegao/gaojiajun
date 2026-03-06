@@ -22,7 +22,7 @@ const readingTime = post.body ? getReadingTime(post.body) : undefined;
 
 <BaseLayout title={post.data.title} description={post.data.description} lang={lang}>
   <article>
-    <a href="/blog/" class="back">&larr; {t(lang, "blog.backToBlog")}</a>
+    <a href="/gaojiajun/blog/" class="back">&larr; {t(lang, "blog.backToBlog")}</a>
     <h1>{post.data.title}</h1>
     <div class="meta">
       <time>{formatDate(post.data.pubDate, lang)}</time>
@@ -31,7 +31,7 @@ const readingTime = post.body ? getReadingTime(post.body) : undefined;
     {post.data.tags.length > 0 && (
       <div class="tags">
         {post.data.tags.map((tag: string) => (
-          <a href={`/tags/${tag}/`} class="tag">#{tag}</a>
+          <a href={`/gaojiajun/tags/${tag}/`} class="tag">#{tag}</a>
         ))}
       </div>
     )}
