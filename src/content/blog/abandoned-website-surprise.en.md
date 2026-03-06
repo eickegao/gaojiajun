@@ -20,7 +20,7 @@ So, guided by some mysterious force, I logged into the backend of that "ancient 
 
 💰💰 **Over $60 CAD?!?** 💰💰
 
-![AdSense Earnings Screenshot](/gaojiajun/images/blog/adsense-earnings.png)
+![AdSense Earnings Screenshot](/images/blog/adsense-earnings.png)
 
 👀 **WHAT?!** This **tiny forgotten website** had been **secretly making money for me**?! And it was **completely passive**! 🤑 **This site only ran for about a year and it generated income without me knowing!**
 

@@ -8,8 +8,8 @@ export const SITE = {
     en: "Personal blog of Solopreneur",
     zh: "独立营业中",
   },
-  url: "https://eickegao.github.io",
-  base: "/gaojiajun",
+  url: "https://gaojiajun.me",
+  base: "",
   defaultLang: "zh" as const,
   supportedLangs: ["en", "zh"] as const,
 
@@ -19,7 +19,7 @@ export const SITE = {
       en: "Eric Gao",
       zh: "德州小高",
     },
-    avatar: "/gaojiajun/avatar.jpg",
+    avatar: "/avatar.jpg",
     bio: {
       en: "Welcome to my personal blog. I write about technology, life, and everything in between.",
       zh: "欢迎来到我的个人博客。我写关于技术、生活和其间一切的文章。",
@@ -37,14 +37,14 @@ export const SITE = {
   // 导航菜单
   nav: {
     zh: [
-      { text: "首页", href: "/gaojiajun/" },
-      { text: "博客", href: "/gaojiajun/blog/" },
-      { text: "关于", href: "/gaojiajun/about/" },
+      { text: "首页", href: "/" },
+      { text: "博客", href: "/blog/" },
+      { text: "关于", href: "/about/" },
     ],
     en: [
-      { text: "Home", href: "/gaojiajun/en/" },
-      { text: "Blog", href: "/gaojiajun/en/blog/" },
-      { text: "About", href: "/gaojiajun/en/about/" },
+      { text: "Home", href: "/en/" },
+      { text: "Blog", href: "/en/blog/" },
+      { text: "About", href: "/en/about/" },
     ],
   },
 

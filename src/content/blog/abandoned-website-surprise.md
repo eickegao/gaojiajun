@@ -20,7 +20,7 @@ lang: "zh"
 
 💰💰 **60 多加币？？？** 💰💰
 
-![AdSense 收入截图](/gaojiajun/images/blog/adsense-earnings.png)
+![AdSense 收入截图](/images/blog/adsense-earnings.png)
 
 👀 **WHAT？！** 这个我已经**遗忘十几年的小破站**，居然**偷偷摸摸地给我赚了钱**？？？而且是**完全被动**的！🤑 **这只运行了一年的网站居然为我创造财富，而我竟然一无所知！**
 

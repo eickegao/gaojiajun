@@ -26,7 +26,7 @@ const { tag, posts } = Astro.props;
 ---
 
 <BaseLayout title={`${t(lang, "blog.taggedWith")}: ${tag}`} lang={lang}>
-  <a href="/gaojiajun/blog/" class="back">&larr; {t(lang, "blog.backToBlog")}</a>
+  <a href="/blog/" class="back">&larr; {t(lang, "blog.backToBlog")}</a>
   <h1>{t(lang, "blog.taggedWith")}: #{tag}</h1>
   {posts.map((post: any) => (
     <ArticleCard

@@ -2,8 +2,7 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://eickegao.github.io",
-  base: "/gaojiajun",
+  site: "https://gaojiajun.me",
   markdown: {
     shikiConfig: {
       theme: "catppuccin-mocha",
