@@ -15,7 +15,7 @@ const switchPath = getSwitchLangPath(Astro.url.pathname, lang);
   <div class="header-inner">
     <a href={lang === "en" ? "/gaojiajun/" : "/gaojiajun/zh/"} class="logo">
       <img src={SITE.author.avatar} alt={SITE.author.name[lang]} class="logo-avatar" onerror="this.style.display='none'" />
-      <span>{SITE.title}</span>
+      <span>{SITE.title[lang]}</span>
     </a>
     <nav>
       {nav.map((item) => (

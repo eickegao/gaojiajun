@@ -1,6 +1,9 @@
 // 站点配置 - 修改这里的值来自定义你的博客
 export const SITE = {
-  title: "Gao Jiajun",
+  title: {
+    en: "Solopreneur",
+    zh: "独立营业中",
+  },
   description: {
     en: "Personal blog of Gao Jiajun",
     zh: "高加骏的个人博客",
