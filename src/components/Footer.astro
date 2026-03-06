@@ -1,0 +1,59 @@
+---
+import { SITE, type Lang } from "../config";
+import { t } from "../i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const socials = Object.entries(SITE.socials).filter(([_, url]) => url);
+---
+
+<footer>
+  <div class="footer-inner">
+    {socials.length > 0 && (
+      <div class="social-links">
+        {socials.map(([name, url]) => (
+          <a href={url} target="_blank" rel="noopener noreferrer">{name}</a>
+        ))}
+      </div>
+    )}
+    <p>&copy; {new Date().getFullYear()} {SITE.author.name[lang]}. {t(lang, "footer.rights")}</p>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: var(--footer-bg);
+    color: #94a3b8;
+    margin-top: auto;
+  }
+
+  .footer-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .social-links a {
+    color: #94a3b8;
+    text-transform: capitalize;
+  }
+
+  .social-links a:hover {
+    color: var(--accent);
+  }
+
+  p {
+    font-size: 0.85rem;
+  }
+</style>

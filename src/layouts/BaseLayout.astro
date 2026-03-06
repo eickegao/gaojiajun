@@ -1,0 +1,178 @@
+---
+import { SITE, type Lang } from "../config";
+import { t } from "../i18n";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  lang?: Lang;
+}
+
+const { title, description, lang = "en" } = Astro.props;
+const siteDescription = description || SITE.description[lang];
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={siteDescription} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title} | {SITE.title}</title>
+
+    {/* Google Analytics */}
+    {SITE.analytics.googleAnalyticsId && (
+      <Fragment>
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${SITE.analytics.googleAnalyticsId}`}
+        ></script>
+        <script
+          define:vars={{ gaId: SITE.analytics.googleAnalyticsId }}
+        >
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', gaId);
+        </script>
+      </Fragment>
+    )}
+
+    {/* Google AdSense */}
+    {SITE.ads.googleAdsenseId && (
+      <script
+        async
+        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${SITE.ads.googleAdsenseId}`}
+        crossorigin="anonymous"
+      ></script>
+    )}
+
+    {/* Theme CSS Variables */}
+    <style define:vars={{
+      primaryColor: SITE.theme.primaryColor,
+      accentColor: SITE.theme.accentColor,
+      bgColor: SITE.theme.bgColor,
+      textColor: SITE.theme.textColor,
+      cardBgColor: SITE.theme.cardBgColor,
+      footerBgColor: SITE.theme.footerBgColor,
+    }}>
+      :root {
+        --primary: var(--primaryColor);
+        --accent: var(--accentColor);
+        --bg: var(--bgColor);
+        --text: var(--textColor);
+        --card-bg: var(--cardBgColor);
+        --footer-bg: var(--footerBgColor);
+      }
+    </style>
+  </head>
+  <body>
+    <Header lang={lang} />
+    <main>
+      <slot />
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>
+
+<style is:global>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    width: 100%;
+  }
+
+  a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  a:hover {
+    color: var(--accent);
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Markdown article styles */
+  .prose h1, .prose h2, .prose h3, .prose h4 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    line-height: 1.3;
+  }
+
+  .prose h1 { font-size: 2rem; }
+  .prose h2 { font-size: 1.5rem; }
+  .prose h3 { font-size: 1.25rem; }
+
+  .prose p {
+    margin-bottom: 1em;
+  }
+
+  .prose ul, .prose ol {
+    margin-bottom: 1em;
+    padding-left: 1.5em;
+  }
+
+  .prose blockquote {
+    border-left: 3px solid var(--primary);
+    padding-left: 1em;
+    margin: 1em 0;
+    color: #666;
+  }
+
+  .prose pre {
+    background: #1e1e2e;
+    color: #cdd6f4;
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1em 0;
+  }
+
+  .prose code {
+    font-family: "Fira Code", "JetBrains Mono", monospace;
+    font-size: 0.9em;
+  }
+
+  .prose :not(pre) > code {
+    background: var(--card-bg);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+
+  .prose img {
+    border-radius: 8px;
+    margin: 1em 0;
+  }
+
+  .prose hr {
+    border: none;
+    border-top: 1px solid #e2e8f0;
+    margin: 2em 0;
+  }
+</style>

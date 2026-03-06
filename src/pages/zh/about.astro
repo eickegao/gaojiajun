@@ -1,0 +1,74 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SITE } from "../../config";
+import { t } from "../../i18n";
+
+const lang = "zh";
+const socials = Object.entries(SITE.socials).filter(([_, url]) => url);
+---
+
+<BaseLayout title={t(lang, "about.title")} lang={lang}>
+  <section class="about">
+    <img src={SITE.author.avatar} alt={SITE.author.name[lang]} class="avatar" onerror="this.style.display='none'" />
+    <h1>{SITE.author.name[lang]}</h1>
+    <p class="bio">{SITE.author.bio[lang]}</p>
+
+    {socials.length > 0 && (
+      <div class="social-links">
+        {socials.map(([name, url]) => (
+          <a href={url} target="_blank" rel="noopener noreferrer" class="social-link">{name}</a>
+        ))}
+      </div>
+    )}
+  </section>
+</BaseLayout>
+
+<style>
+  .about {
+    text-align: center;
+    padding: 3rem 0;
+  }
+
+  .avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 3px solid var(--primary);
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .bio {
+    color: #475569;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .social-link {
+    padding: 0.5rem 1.25rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    text-transform: capitalize;
+    transition: all 0.2s;
+  }
+
+  .social-link:hover {
+    border-color: var(--primary);
+    background: var(--primary);
+    color: white;
+  }
+</style>

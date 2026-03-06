@@ -1,0 +1,34 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import ArticleCard from "../../../components/ArticleCard.astro";
+import { t } from "../../../i18n";
+import { getBlogPosts } from "../../../utils/blog";
+
+const lang = "zh";
+const posts = await getBlogPosts(lang);
+---
+
+<BaseLayout title={t(lang, "blog.title")} lang={lang}>
+  <h1>{t(lang, "blog.allPosts")}</h1>
+  {posts.map((post) => (
+    <ArticleCard
+      title={post.data.title}
+      description={post.data.description}
+      pubDate={post.data.pubDate}
+      slug={post.id}
+      tags={post.data.tags}
+      lang={lang}
+      body={post.body}
+    />
+  ))}
+  {posts.length === 0 && <p class="empty">暂无文章。</p>}
+</BaseLayout>
+
+<style>
+  h1 { margin-bottom: 1rem; }
+  .empty {
+    color: #94a3b8;
+    text-align: center;
+    padding: 2rem 0;
+  }
+</style>

@@ -1,0 +1,84 @@
+---
+import type { Lang } from "../config";
+import { t, getLocalizedPath } from "../i18n";
+import { formatDate, getReadingTime } from "../utils/blog";
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  slug: string;
+  tags: string[];
+  lang: Lang;
+  body?: string;
+}
+
+const { title, description, pubDate, slug, tags, lang, body } = Astro.props;
+const readingTime = body ? getReadingTime(body) : undefined;
+const href = getLocalizedPath(`/blog/${slug}/`, lang);
+---
+
+<article class="article-card">
+  <a href={href}>
+    <h3>{title}</h3>
+  </a>
+  <div class="meta">
+    <time>{formatDate(pubDate, lang)}</time>
+    {readingTime && <span> · {readingTime} {t(lang, "blog.minRead")}</span>}
+  </div>
+  <p>{description}</p>
+  {tags.length > 0 && (
+    <div class="tags">
+      {tags.map((tag) => (
+        <a href={getLocalizedPath(`/tags/${tag}/`, lang)} class="tag">#{tag}</a>
+      ))}
+    </div>
+  )}
+</article>
+
+<style>
+  .article-card {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .article-card:last-child {
+    border-bottom: none;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .meta {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: #475569;
+    font-size: 0.95rem;
+  }
+
+  .tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-size: 0.8rem;
+    color: var(--primary);
+    background: var(--card-bg);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  .tag:hover {
+    background: var(--primary);
+    color: white;
+  }
+</style>
